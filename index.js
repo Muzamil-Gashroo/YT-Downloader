@@ -74,4 +74,4 @@ app.post("/download", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Server On"));
+app.listen(process.env.PORT, () => console.log("Server On"));
