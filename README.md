@@ -1,7 +1,7 @@
 # YouTube URL Downloader API
 
 A Node.js backend service that downloads YouTube videos using **yt-dlp**, uploads them to **Cloudinary**, and stores download history in **MongoDB**.  
-Fully deployable on **Render**, including support for YouTube cookies to bypass bot verification.
+
 
 ---
 
