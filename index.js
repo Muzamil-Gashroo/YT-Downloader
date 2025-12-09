@@ -30,7 +30,15 @@ app.post("/download", async (req, res) => {
     const outTemplate = `url_downloads/${uid}.%(ext)s`;
 
 
-    await ytdlp(url, { format: "best", output: outTemplate });
+    await ytdlp(url, {
+                 
+      format: "bestvideo*+bestaudio/best",                
+      output: outTemplate,
+      "extractor-args": "youtube:player_client=android",
+      "js-runtimes": "node",
+      "no-check-certificate": true,
+      "ignore-errors": true
+    });
 
    
     const downloadedFiles = fs.readdirSync("url_downloads").filter(f => f.startsWith(uid));
@@ -74,4 +82,4 @@ app.post("/download", async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log("Server On"));
+app.listen(process.env.PORT, () => console.log("Server On"));
